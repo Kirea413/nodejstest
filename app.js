@@ -19,13 +19,13 @@ app.post('/', (req, res) => {
 });
 
 app.post('/parse/', (req, res) => {
-    io.emit('message', req.body);
+    io.emit('message', req.body.text);
     console.log(req.body);
     res.sendStatus(200);
 });
 
 app.post('/parse/400', (req, res) => {
-    io.emit('message', '400');
+    io.emit('message', '400' + req.body);
     console.log('400');
     res.sendStatus(400);
 });
