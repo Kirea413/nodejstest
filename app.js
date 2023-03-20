@@ -25,7 +25,7 @@ app.post('/parse/', (req, res) => {
 });
 
 app.post('/parse/400', (req, res) => {
-    io.emit('message', '400'));
+    io.emit('message', '400');
     console.log('400');
     res.sendStatus(400);
 });
