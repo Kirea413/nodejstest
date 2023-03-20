@@ -18,6 +18,30 @@ app.post('/', (req, res) => {
     res.sendStatus(200);
 });
 
+app.post('/', (req, res) => {
+    io.emit('message', JSON.stringify(req.body));
+    console.log(req.body);
+    res.sendStatus(200);
+});
+
+app.post('/parse/', (req, res) => {
+    io.emit('message', JSON.stringify(req.body));
+    console.log(req.body);
+    res.sendStatus(200);
+});
+
+app.post('/parse/400', (req, res) => {
+    io.emit('message', JSON.stringify("400 return"));
+    console.log(req.body);
+    res.sendStatus(400);
+});
+
+app.post('/parse/500', (req, res) => {
+    io.emit('message', JSON.stringify("400 return"));
+    console.log(req.body);
+    res.sendStatus(500);
+});
+
 io.on('connection', socket => {
     console.log('connection');
     socket.on('disconnect', () => {
