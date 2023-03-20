@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     io.emit('message', JSON.stringify(req.body));
-    console.log(req.body);
+    console.log(req.body.subject + req.body.text);
     res.sendStatus(200);
 });
 
