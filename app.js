@@ -18,27 +18,21 @@ app.post('/', (req, res) => {
     res.sendStatus(200);
 });
 
-app.post('/', (req, res) => {
-    io.emit('message', JSON.stringify(req.body));
-    console.log(req.body);
-    res.sendStatus(200);
-});
-
 app.post('/parse/', (req, res) => {
-    io.emit('message', JSON.stringify(req.body));
+    io.emit('message', req.body);
     console.log(req.body);
     res.sendStatus(200);
 });
 
 app.post('/parse/400', (req, res) => {
-    io.emit('message', JSON.stringify("400 return"));
-    console.log(req.body);
+    io.emit('message', '400'));
+    console.log('400');
     res.sendStatus(400);
 });
 
 app.post('/parse/500', (req, res) => {
-    io.emit('message', JSON.stringify("400 return"));
-    console.log(req.body);
+    io.emit('message', '500');
+    console.log('500');
     res.sendStatus(500);
 });
 
